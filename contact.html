@@ -21,6 +21,28 @@
     </header>
 
     <main>
+        <div class="form-container">
+            <h2>お問い合わせ</h2>
+            <p>ご意見・ご感想などはこちらからお願いします。</p>
+
+        <form action="#" method="post">
+            <div>
+                <label for="name">お名前:</label><br>
+                <input type="text" id="name" name="user_name" required>
+            </div>
+            <div>
+                <label for="email">メールアドレス:</label><br>
+                <input type="email" id="email" name="user_email" required>
+            </div>
+            <div>
+                <label for="message">お問い合わせ内容:</label><br>
+                <textarea id="message" name="user_message" rows="5" required></textarea>
+            </div>
+            <div>
+                <button type="submit">送信</button>
+            </div>
+        </form>
+        </div>
         <!-- ここに各ページの固有のコンテンツを記述します -->
     </main>
 

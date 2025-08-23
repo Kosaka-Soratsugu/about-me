@@ -1,51 +1,283 @@
-
-.body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  font-size: 18px; /* 基本の文字サイズを大きくします (例: 16px -> 18px) */
 }
 
-.header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+/* 既存のCSSがあればその下に追加してください */
+
+body {
+  /* ヘッダーがコンテンツに重ならないように、本体の上部に余白を設けます */
+  /* この値はヘッダーの実際の高さに合わせて調整してください */
+  padding-top: 80px;
+  padding-bottom: 60px;
 }
 
-.nav ul {
-    list-style-type: none;
-    padding: 0;
+header {
+  /* ヘッダーを画面上部に固定します */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  /* ヘッダーの見た目を整えます（お好みで調整してください） */
+  background-color: #ffffff; /* 背景色を白に設定 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ヘッダーの下に影をつけ、立体感を出す */
+  z-index: 100; /* 他の要素より手前に表示されるように設定 */
+
+  /* ヘッダー内の要素を横並びにするための設定 */
+  display: flex;
+  justify-content: space-between; /* 両端に寄せる */
+  align-items: center; /* 上下中央揃え */
+  padding: 0 20px; /* 左右に余白を追加 */
+  height: 60px; /* ヘッダーの高さを指定 */
 }
 
-.nav ul li {
-    display: inline;
-    margin-right: 1rem;
+header h1 {
+  margin: 0;
 }
 
-.nav ul li a {
-    color: #fff;
-    text-decoration: none;
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
-.footer {
-    text-align: center;
-    padding: 3rem;
-    background: #333;
-    color: #fff;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+header nav ul li {
+  margin-left: 20px; /* メニュー間の余白 */
 }
 
-@media (max-width: 600px) {
-    .header, .footer {
-        padding: 1rem;
-    }
+header nav ul li a {
+  text-decoration: none; /* リンクの下線を消す */
+  color: #333; /* リンクの文字色を濃いグレーに */
+  font-weight: bold; /* 文字を少し太くする */
+  padding: 5px 0;
+  transition: color 0.3s; /* 色の変化を滑らかにする */
+}
 
-    .nav ul li {
-        display: block;
-        margin: 0.5rem 0;
-    }
+header nav ul li a:hover {
+  color: #555; /* マウスを乗せた時に色を少し薄いグレーに変える */
+}
+
+header nav {
+  margin-right: 30px;
+}
+
+/* ↓↓↓ ここから下を修正・追記します ↓↓↓ */
+
+/* 画面幅が768px以下の場合に適用されるスタイル */
+@media (max-width: 768px) {
+  header {
+    /* ヘッダー内の要素を縦並びにする */
+    flex-direction: column;
+    /* 高さを自動調整 */
+    height: auto;
+    padding: 10px;
+  }
+
+  header nav ul {
+    /* メニューを縦並びにする */
+    flex-direction: column;
+    width: 100%; /* 横幅いっぱいを使う */
+    text-align: center; /* 文字を中央揃えに */
+    margin-top: 10px; /* タイトルとの間に余白を追加 */
+  }
+
+  header nav ul li {
+    margin: 5px 0; /* 上下の余白を設定 */
+    margin-left: 0; /* 左の余白をリセット */
+  }
+
+  body {
+    /* ヘッダーの高さが変わるため、bodyのpaddingも調整 */
+    padding-top: 150px; /* この値は実際のヘッダーの高さに合わせて調整してください */
+  }
+
+  /* ↓↓↓ ここから下を追記します ↓↓↓ */
+
+  /* プロフィールセクションと各記事のレイアウトを縦並びに変更 */
+  main .profile-section,
+  main article {
+    flex-direction: column; /* 要素を縦に並べる */
+    align-items: center; /* 中央揃えにする */
+    text-align: center; /* テキストも中央揃えに */
+  }
+
+  /* スマホ表示では画像の幅を調整 */
+  main .profile-section img,
+  main article img {
+    width: 80%; /* 画面幅の80%に設定 */
+    max-width: 250px; /* ただし最大幅は250pxまで */
+    height: auto;
+    margin-bottom: 15px; /* 画像とテキストの間に余白を追加 */
+    margin-left: 0; /* ← スマホ表示では左マージンをリセット */
+  }
+
+  main .profile-section div h2,
+  main article h3 {
+    margin-top: 0; /* 見出しの上の余白をリセット */
+  }
+}
+
+main {
+  /* ページ全体の左右に余白を持たせ、中央に配置します */
+  max-width: 1100px; /* コンテンツ全体の最大幅を広げます (例: 960px -> 1100px) */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+main article {
+  /* Flexboxを使って、中の要素（画像とテキストのdiv）を横並びにします */
+  display: flex;
+  /* 上端揃えにします */
+  align-items: flex-start;
+  /* 画像とテキストの間に余白を設けます */
+  gap: 20px;
+  /* 各記事の下に余白を設けます */
+  margin-bottom: 40px;
+  /* 見た目を整えるための線と影 */
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+}
+
+main article img {
+  /* 画像が縮まないように設定 */
+  flex-shrink: 0;
+  border-radius: 8px; /* 画像の角を少し丸くする */
+  width: 400px; /* 画像の幅を大きくします (例: 200px -> 250px) */
+  height: auto; /* 高さを自動調整して縦横比を保ちます */
+  transition: transform 0.3s, box-shadow 0.3s; /* ← 変化を滑らかにするtransitionを追加 */
+}
+
+main article img:hover {
+  transform: scale(1.05) translateY(-5px); /* 少し拡大して、わずかに上に移動させる */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 影をより濃く、大きくして立体感を出す */
+}
+
+main article h3 {
+  /* 見出しの上の余白をなくします */
+  margin-top: 0;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333; /* ヘッダーと合わせた暗い色 */
+  color: #fff; /* 文字色を白に */
+
+  /* フッターを画面下部に固定するための設定 */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100; /* ヘッダーと同じく手前に表示 */
+}
+
+/* お問い合わせフォームのコンテナ */
+.form-container {
+  max-width: 600px; /* フォームの最大幅を指定 */
+  margin: 40px auto; /* 上下に40pxの余白、左右は自動で中央揃え */
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2,
+.form-container p {
+  text-align: center; /* 見出しと説明文を中央揃えに */
+}
+
+/* フォームの各入力項目 */
+.form-container div {
+  margin-bottom: 20px;
+}
+
+.form-container label {
+  display: block; /* ラベルをブロック要素にして改行 */
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* 入力欄（text, email）とテキストエリア */
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* paddingを含めて幅100%にする */
+}
+
+/* 送信ボタン */
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+  background-color: #333;
+}
+
+/* ↓↓↓ ホームページのセクション用スタイルを追記します ↓↓↓ */
+
+/* プロフィールセクションのレイアウト */
+main .profile-section {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  background-color: #fff;
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+main .profile-section img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%; /* 画像を円形にする */
+  object-fit: cover; /* 画像の比率を保ったまま円の中に収める */
+  object-position: 70% 50%; /* ← この行を追記して表示位置を調整 */
+  flex-shrink: 0;
+  margin-left: -15px; /* ← この行を追記して画像を左に移動します */
+}
+
+main .profile-section div h2 {
+  margin-top: 0;
+}
+
+/* セクション内の見出し */
+main section h2 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* リストのスタイル */
+main section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+main section ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+main section ul li:last-child {
+  border-bottom: none;
 }
