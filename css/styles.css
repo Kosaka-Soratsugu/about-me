@@ -1,45 +1,44 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
   line-height: 1.6;
   margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-  font-size: 18px; /* 基本の文字サイズを大きくします (例: 16px -> 18px) */
-}
-
-/* 既存のCSSがあればその下に追加してください */
-
-body {
-  /* ヘッダーがコンテンツに重ならないように、本体の上部に余白を設けます */
-  /* この値はヘッダーの実際の高さに合わせて調整してください */
+  
+  /* 海の背景画像を設定 */
+  background-image: url('../images/sea.jpg'); /* ここを準備した画像名に変更 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  background-color: #f0f8ff; /* 画像読み込み中の背景色（アリスブルー） */
+  color: #333;
+  font-size: 18px;
   padding-top: 80px;
   padding-bottom: 60px;
 }
 
+/* === ヘッダー === */
 header {
-  /* ヘッダーを画面上部に固定します */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-
-  /* ヘッダーの見た目を整えます（お好みで調整してください） */
-  background-color: #ffffff; /* 背景色を白に設定 */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* ヘッダーの下に影をつけ、立体感を出す */
-  z-index: 100; /* 他の要素より手前に表示されるように設定 */
-
-  /* ヘッダー内の要素を横並びにするための設定 */
+  background-color: rgba(255, 255, 255, 0.9); /* 少し透明な白にして背景と馴染ませる */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  z-index: 100;
   display: flex;
-  justify-content: space-between; /* 両端に寄せる */
-  align-items: center; /* 上下中央揃え */
-  padding: 0 20px; /* 左右に余白を追加 */
-  height: 60px; /* ヘッダーの高さを指定 */
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
 }
 
 header h1 {
   margin: 0;
+  color: #0056b3; /* サイトタイトルを濃い青に */
 }
 
+/* === ナビゲーション === */
 header nav ul {
   list-style: none;
   margin: 0;
@@ -52,15 +51,20 @@ header nav ul li {
 }
 
 header nav ul li a {
-  text-decoration: none; /* リンクの下線を消す */
-  color: #333; /* リンクの文字色を濃いグレーに */
-  font-weight: bold; /* 文字を少し太くする */
+  text-decoration: none;
+  color: #0056b3; /* リンクの色を濃い青に */
+  font-weight: bold;
   padding: 5px 0;
-  transition: color 0.3s; /* 色の変化を滑らかにする */
+  transition: color 0.3s;
 }
 
 header nav ul li a:hover {
-  color: #555; /* マウスを乗せた時に色を少し薄いグレーに変える */
+  color: #3498db; /* ホバー時の色を明るい青に */
+}
+
+header nav ul li.active a {
+  color: #3498db; /* 現在のページのリンク色 */
+  border-bottom: 2px solid #3498db;
 }
 
 header nav {
@@ -166,8 +170,8 @@ main article h3 {
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #333; /* ヘッダーと合わせた暗い色 */
-  color: #fff; /* 文字色を白に */
+  background-color: #0056b3; /* 不透明な濃い青に変更 */
+  color: #fff;
 
   /* フッターを画面下部に固定するための設定 */
   position: fixed;
@@ -218,7 +222,7 @@ footer {
 .form-container button {
   width: 100%;
   padding: 12px;
-  background-color: #555;
+  background-color: #3498db; /* ボタンの色を明るい青に */
   color: white;
   border: none;
   border-radius: 4px;
@@ -228,7 +232,7 @@ footer {
 }
 
 .form-container button:hover {
-  background-color: #333;
+  background-color: #2980b9; /* ホバー時にもう少し濃い青に */
 }
 
 /* ↓↓↓ ホームページのセクション用スタイルを追記します ↓↓↓ */
@@ -276,8 +280,4 @@ main section ul {
 main section ul li {
   padding: 10px 0;
   border-bottom: 1px solid #f0f0f0;
-}
-
-main section ul li:last-child {
-  border-bottom: none;
 }
