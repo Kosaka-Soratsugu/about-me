@@ -1,6 +1,6 @@
 # about-me
 
-サイト URL：https://github.com/Kosaka-Soratsugu/about-me.git
+サイト URL：https://kosaka-soratsugu.github.io/about-me/
 
 このサイトは私の自己紹介のために制作しました。
 私は海が好きなのでキービジュアルを海にしました。
