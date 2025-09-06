@@ -1,15 +1,16 @@
 body {
-  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans", Meiryo, sans-serif;
   line-height: 1.6;
   margin: 0;
-  
+
   /* 海の背景画像を設定 */
-  background-image: url('../images/sea.jpg'); /* ここを準備した画像名に変更 */
+  background-image: url("../images/sea.jpg"); /* ここを準備した画像名に変更 */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  
+
   background-color: #f0f8ff; /* 画像読み込み中の背景色（アリスブルー） */
   color: #333;
   font-size: 18px;
@@ -23,7 +24,12 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.9); /* 少し透明な白にして背景と馴染ませる */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* 少し透明な白にして背景と馴染ませる */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   z-index: 100;
   display: flex;
@@ -71,8 +77,6 @@ header nav {
   margin-right: 30px;
 }
 
-/* ↓↓↓ ここから下を修正・追記します ↓↓↓ */
-
 /* 画面幅が768px以下の場合に適用されるスタイル */
 @media (max-width: 768px) {
   header {
@@ -80,7 +84,20 @@ header nav {
     flex-direction: column;
     /* 高さを自動調整 */
     height: auto;
-    padding: 10px;
+    padding: 15px; /* ← 上下のパディングを少し増やします */
+  } 
+
+  header h1 {
+    font-size: 8em; /* タイトルの文字サイズを大きくします */
+  }
+
+  header nav ul li {
+    margin: 10px 0; /* 上下の余白を増やしてタップしやすくします */
+    margin-left: 0; /* 左の余白をリセット */
+  }
+
+  header nav ul li a {
+    font-size: 4em; /* ナビゲーションの文字を少し大きくします */
   }
 
   header nav ul {
@@ -91,17 +108,10 @@ header nav {
     margin-top: 10px; /* タイトルとの間に余白を追加 */
   }
 
-  header nav ul li {
-    margin: 5px 0; /* 上下の余白を設定 */
-    margin-left: 0; /* 左の余白をリセット */
-  }
-
   body {
     /* ヘッダーの高さが変わるため、bodyのpaddingも調整 */
-    padding-top: 150px; /* この値は実際のヘッダーの高さに合わせて調整してください */
+    padding-top: 230px; /* ← ヘッダーが大きくなった分、この値を増やします */
   }
-
-  /* ↓↓↓ ここから下を追記します ↓↓↓ */
 
   /* プロフィールセクションと各記事のレイアウトを縦並びに変更 */
   main .profile-section,
